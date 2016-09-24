@@ -31,6 +31,7 @@ Writing HTML documents allows you to provide structure and meaning to the inform
 - [HTML Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
 - [HTML Select Element](http://www.w3schools.com/tags/tag_select.asp)
 - [Mac VoiceOver](https://www.apple.com/voiceover/info/guide/)
+
 ## Conceptual Approach
 In order to construct documents that are usable across devices, we need to **encode meaning** into the structure of our webpages. The primary approach is to use the proper HTML elements to describe the hierarchy of information on a webpage. As you likely know, it's easy to manipulate CSS styles to vary the visual representation of elements. However, these visual specifications _**do not**_ make documents easier to navigate on alternative devices. Instead, you'll need to use the appropriate `<tags>` that encode the desired hierarchy of your page.
 
