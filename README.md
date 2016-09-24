@@ -1,17 +1,16 @@
 # Module 6: Writing Accessible HTML Documents
 
 ## Overview
-Writing HTML documents allows you to provide structure and meaning to the information you're trying to communicate. As developers, we are responsible for ensuring that the documents that we create are easily interpreted by web-browsers, [screen readers](https://en.wikipedia.org/wiki/Screen_reader), and [alternative input devices](https://askjan.org/media/altinput.html) that interpret HTML structure. In the module, we'll cover the basic approaches for ensuring that the documents we create are properly rendered across devices.
+Writing HTML documents allows you to provide structure and meaning to the information you're trying to communicate. As developers, we are responsible for ensuring that the documents that we create are easily interpreted by web-browsers, [screen readers](https://en.wikipedia.org/wiki/Screen_reader), and [alternative input devices](https://askjan.org/media/altinput.html) that interpret HTML structure. In this module, we'll cover the basic approaches for ensuring that the documents we create are properly rendered across devices.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Contents**
 
 - [Resources](#resources)
 - [Conceptual Approach](#conceptual-approach)
 - [Semantic HTML](#semantic-html)
-- [Supplemental Information](#supplemental-information)
+- [Encoding Additional Information](#encoding-additional-information)
   - [HTML Attributes](#html-attributes)
   - [WAI-ARIA](#wai-aria)
     - [Aria Labels](#aria-labels)
@@ -20,7 +19,6 @@ Writing HTML documents allows you to provide structure and meaning to the inform
   - [Inputs](#inputs)
   - [Buttons and Dropdowns](#buttons-and-dropdowns)
   - [Built-in Error Handling](#built-in-error-handling)
-- [Section 3](#section-3)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -34,17 +32,17 @@ Writing HTML documents allows you to provide structure and meaning to the inform
 ## Conceptual Approach
 In order to construct documents that are usable across devices, we need to **encode meaning** into the structure of our webpages. The primary approach is to use the proper HTML elements to describe the hierarchy of information on a webpage. As you likely know, it's easy to manipulate CSS styles to vary the visual representation of elements. However, these visual specifications _**do not**_ make documents easier to navigate on alternative devices. Instead, you'll need to use the appropriate `<tags>` that encode the desired hierarchy of your page.
 
-The second approach is to provide addition information to alternative devices, such as screen readers. In the section below, you'll learn how to use specific **attributes** to encode meaning to specific elements. These are crucial when HTML elements fall short.
+The second approach is to provide additional information to alternative devices, such as screen readers. In the sections below, you'll learn how to use proper HTML structure in combination with specific element **attributes** to encode meaning your page. These are crucial when HTML elements fall short.
 
 ## Semantic HTML
-**Semantic** elements are elements that have an inherent _meaning_. Before the release of HTML5, it was common to use elements that were not semantically meaningful (i.e., `<div>`) to represent page areas that were common place across pages, such as **navigation** menus, or page **footers**. HTML5 introduced a variety of different semantically meaningful elements to help describe the function of each section of a page. This is not only helpful for screen readers, but immensely useful for organizing your code. Below is a table of _some_ HTML5 semantically meaningful elements:
+**Semantic** elements are elements that have an inherent _meaning_. Before the release of HTML5, it was common to use elements that were not semantically meaningful (i.e., `<div>`) to represent page areas that were common across many pages, such as **navigation** menus, or page **footers**. HTML5 introduced a variety of different semantically meaningful elements to help describe the **role** of each section of a page. This is not only helpful for screen readers, but immensely useful for organizing your code. Below is a table of _some_ HTML5 semantically meaningful elements (see all [here](http://www.w3schools.com/html/html5_semantic_elements.asp)):
 
 | Elements | Description     |
 | :------------- | :------------- |
-| `<section>`| A grouping of elements that constitute a similar theme |
 | `<header>`| Specifies the top of a document or section, typically used at the top of a webpage |
 | `<nav>`| An element that contains navigational links |
 | `<main>`| Demarcates the primary section of content on the page |
+| `<section>`| A grouping of elements that constitute a similar theme |
 | `<footer>`| The bottom section of a page or document |
 
 These fit together to form a semantically meaningful webpage:
@@ -81,7 +79,7 @@ While you can make a website _look_ how you want without these elements, your co
 
 It's worth noting that heading elements (`h1`, `h2`, `h3`, etc.) are also semantically meaningful. As such, you should use them as section labels, and _**not just to impose a desired style**_. Relatedly, because screen readers navigate through the hierarchy of heading elements, you _**should not skip headers**_ (i.e., you should have an `h2` element between an `h1` and an `h3`).
 
-## Supplemental Information
+## Encoding Additional Information
 While semantically meaningful elements help you organize your page, you often need to provide additional information about a particular element. There are two methods for providing additional information to HTML elements:
 
 1. Some HTML elements, such as images, have default attributes for providing supplemental information to screen readers
@@ -94,7 +92,7 @@ Image tags (`<img>`) have a default `alt` attribute which you should use to prov
 <!-- Provide meaningful alternate text for images -->
 <img src="imgs/baby.png" alt="a young child">
 ```
-Note, it's unnecessary to include a prefix such as "photo of..." in your alternate text.
+Note, it's unnecessary to include a prefix such as _"photo of..."_ in your alternate text.
 
 ### WAI-ARIA
 _The Web Accessibility Initiative - Accessible Rich Internet Application_ is a technical specification which provides a syntax for enhancing the navigability and interpretability of "rich" HTML documents. These are used for more "rich" internet application that support user interaction, such as forms. This syntax can be used to label content, describe function, or describe the state of an application (i.e., if a checkbox is checked).
@@ -129,8 +127,9 @@ In addition to the use of `role` elements, there are semantically meaningful HTM
 HTML5 provides a variety of elements for building forms. Understanding how to properly associate different elements in a form, and how to leverage built-in input `types` will make this common web-development task substantially easier. As you can imagine, the semantically meaningful element for an HTML form is the `<form>` tag. Within your form, you'll
 
 ### Inputs
-Within your `<form>` the `<input>` tag is the most common element for collecting information from your user. Depending on the `type` attribute assigned to your `<input>` element, the rendering, options, and behaviors vary substantially.
+Within your `<form>`, the `<input>` tag is the most common element for collecting information from your user. Depending on the `type` attribute assigned to your `<input>` element, the rendering and behaviors vary substantially.
 
+#### Labels
 In order to properly label each element, you'll need to use the `<label>` tag. Associating a label with an input element is _crucial_ for interpretability on screen readers, and is easily accomplished by setting the `for` attribute of a label:
 
 ```html
@@ -144,7 +143,15 @@ In order to properly label each element, you'll need to use the `<label>` tag. A
 </form>
 ```
 
-Note, associating a label with an input also lends it additional functionality in a web-browser. If a label is associated with an input element, clicking the label will activate the input element, making the form easier to use.
+Note, associating a label with an input also lends it additional functionality in a web-browser. If a label is associated with an input element, clicking the label will activate the input element, making the form easier to use. As you can see, we again used the `id` property of the `<input>` element to associate it with the label.
+
+#### Input Type
+The `type` attribute dictates the look and feel of your `input` element. Specifying a `type` can enable you to make a variety of enhancements to your form. It allows you to:
+
+- Restrict the values you can type into the input box (`type="number"`)
+- Change the rendering of the characters (`type="password"`)
+- Change the visual layout of elements (`type="checkbox"`)
+- Provide HTML5 selection menus(`type="date"`)
 
 The image below shows how simply changing the input `type`, the rendering and behavior is substantially different:
 
@@ -203,3 +210,5 @@ Placing the appropriate type on an `<input>` element both ensures proper renderi
 If you then try to submit the form with an invalid email address, HTML5 will provide an informative error message, such as this one:
 
 ![html5 email input error message](imgs/email-error.png)
+
+To practice building HTML forms, see [exercise-2](exercise-2).
