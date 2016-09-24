@@ -8,15 +8,17 @@ Writing HTML documents allows you to provide structure and meaning to the inform
 **Contents**
 
 - [Resources](#resources)
-- [Conceptual Approach](#conceptual-approach)
 - [Semantic HTML](#semantic-html)
 - [Encoding Additional Information](#encoding-additional-information)
   - [HTML Attributes](#html-attributes)
   - [WAI-ARIA](#wai-aria)
     - [Aria Labels](#aria-labels)
     - [Aria role](#aria-role)
+- [Using VoiceOver](#using-voiceover)
 - [Forms](#forms)
   - [Inputs](#inputs)
+    - [Labels](#labels)
+    - [Input Type](#input-type)
   - [Buttons and Dropdowns](#buttons-and-dropdowns)
   - [Built-in Error Handling](#built-in-error-handling)
 
