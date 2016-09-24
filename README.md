@@ -28,7 +28,7 @@ Writing HTML documents allows you to provide structure and meaning to the inform
 - [Applicable Aria Roles](https://www.w3.org/TR/html-aria/#docconformance)
 - [HTML Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
 - [HTML Select Element](http://www.w3schools.com/tags/tag_select.asp)
-
+- [Mac VoiceOver](https://www.apple.com/voiceover/info/guide/)
 ## Conceptual Approach
 In order to construct documents that are usable across devices, we need to **encode meaning** into the structure of our webpages. The primary approach is to use the proper HTML elements to describe the hierarchy of information on a webpage. As you likely know, it's easy to manipulate CSS styles to vary the visual representation of elements. However, these visual specifications _**do not**_ make documents easier to navigate on alternative devices. Instead, you'll need to use the appropriate `<tags>` that encode the desired hierarchy of your page.
 
@@ -122,6 +122,17 @@ In addition to various `aria-*` attributes, the `role` attribute is an WAI-ARIA 
 ```
 
 In addition to the use of `role` elements, there are semantically meaningful HTML elements to use for building forms.
+
+## Using VoiceOver
+VoiceOver is the screen reading technology built into Mac operating systems. It is a very powerful tool, but is fairly easy to get started. Here are a few pointers:
+
+- Activate/deactivate VoiceOver by pressing `cmd-F5`
+- Start reading a document by pressing `ctrl-option-a`
+- Pause reading document by pressing `ctrl`
+- Navigate between sections by pressing `ctrl-option-left/right` (arrow keys)
+- Open up a header navigation menu by pressing `ctrl-option-u` (exit by pressing `esc`)
+
+To practice using VoiceOver, and to demonstrate the importance of using proper HTML structure and ARIA roles, see [exercise-1](exercise-1).
 
 ## Forms
 HTML5 provides a variety of elements for building forms. Understanding how to properly associate different elements in a form, and how to leverage built-in input `types` will make this common web-development task substantially easier. As you can imagine, the semantically meaningful element for an HTML form is the `<form>` tag. Within your form, you'll
